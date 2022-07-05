@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PokeDex</string>
+    <string name="password">Senha</string>
+    <string name="passwordConfirm">Confirmação de senha</string>
+    <string name="email">Email</string>
+    <string name="login">Entrar</string>
+    <string name="createAccount">Criar conta</string>
+    <string name="haveAnAccount">Já tenho uma conta</string>
+    <string name="error_valid_email_password">Email e/ou Senha Inválido(s)</string>
+    <string name="name">Nome</string>
+    <string name="user_create_success_message">Usuario criado com sucesso</string>
+    <string name="error_email_exists">Existe outra conta com esse email</string>
+</resources>
