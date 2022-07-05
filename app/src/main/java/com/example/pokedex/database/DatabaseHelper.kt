@@ -98,7 +98,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper (context, DATABASE_NAM
 
             user = User(userId, name, email)
         } catch (exception: Exception) {
-            Log.d("Error in UserCheck", exception.message.toString())
+            Log.d("Error in UserCheck: ", exception.message.toString())
         }
 
         cursor.close()

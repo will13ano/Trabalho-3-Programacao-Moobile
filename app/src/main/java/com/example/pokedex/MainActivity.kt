@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val user = databaseHelper!!.checkUser(emailField!!.text.toString().trim { it <= ' ' }, passwordField!!.text.toString().trim { it <= ' ' })
         if (user != null) {
-            val accountsIntent = Intent(activity, ListPokemons::class.java)
+            val accountsIntent = Intent(activity, MainActivity2::class.java)
             accountsIntent.putExtra("USER", user)
             emptyInputEditText()
             startActivity(accountsIntent)
