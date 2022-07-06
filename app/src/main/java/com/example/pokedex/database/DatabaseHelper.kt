@@ -10,12 +10,23 @@ import com.example.pokedex.model.User
 class DatabaseHelper(context: Context) : SQLiteOpenHelper (context, DATABASE_NAME, null, DATABASE_VERSION){
     private val CREATE_USER_TABLE = ("CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
-            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT" + ")")
+            + COLUMN_USER_EMAIL + " TEXT," + COLUMN_USER_PASSWORD + " TEXT );")
+
+    private val CREATE_POKEMON_TABLE = ( "CREATE TABLE " + TABLE_POKEMON + "("
+            + COLUMN_POKE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_POKE_NAME + " TEXT,"
+            + COLUMN_POKE_IMAGE + " TEXT );" )
+
+    private val CREATE_USER_POKEMON_TABLE = ("CREATE TABLE " + TABLE_USER_POKEMON + "("
+            + COLUMN_USER_ID + " INTEGER , " + COLUMN_POKE_ID + " INTEGER,"
+            + "FOREIGN KEY(" + COLUMN_USER_ID + ") REFERENCES " + TABLE_USER + "(Id),"
+            + "FOREIGN KEY(" + COLUMN_POKE_ID + ") REFERENCES " + TABLE_POKEMON + "(Id));")
 
     private val DROP_USER_TABLE = "DROP TABLE IF EXISTS $TABLE_USER"
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(CREATE_USER_TABLE);
+        db.execSQL(CREATE_USER_TABLE)
+        db.execSQL(CREATE_POKEMON_TABLE)
+        db.execSQL(CREATE_USER_POKEMON_TABLE)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
@@ -75,7 +86,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper (context, DATABASE_NAM
     }
 
     fun checkUser(email: String, password: String): User? {
-        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_NAME, COLUMN_USER_EMAIL)
+        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_NAME, COLUMN_USER_EMAIL, COLUMN_USER_PASSWORD)
         val db = this.readableDatabase
 
         val selection = "$COLUMN_USER_EMAIL = ? AND $COLUMN_USER_PASSWORD = ?"
@@ -90,36 +101,49 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper (context, DATABASE_NAM
             val userIdIndex = cursor.getColumnIndexOrThrow(COLUMN_USER_ID)
             val nameIndex = cursor.getColumnIndex(COLUMN_USER_NAME)
             val emailIndex = cursor.getColumnIndex(COLUMN_USER_EMAIL)
+            val passwordIndex = cursor.getColumnIndex(COLUMN_USER_PASSWORD)
 
             val userId = cursor.getInt(userIdIndex)
             val name = cursor.getString(nameIndex)
             val email = cursor.getString(emailIndex)
+            val password = cursor.getString(passwordIndex)
 
 
-            user = User(userId, name, email)
+            user = User(userId, name, email, password)
         } catch (exception: Exception) {
             Log.d("Error in UserCheck: ", exception.message.toString())
         }
 
         cursor.close()
         db.close()
-        return user;
+        return user
     }
 
     companion object {
         // Database Version
-        private val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 1
 
         // Database Name
-        private val DATABASE_NAME = "PokedexApp.db"
+        private const val DATABASE_NAME = "PokedexApp.db"
 
         // User table name
-        private val TABLE_USER = "user"
+        private const val TABLE_USER = "user"
 
         // User Table Columns names
-        private val COLUMN_USER_ID = "user_id"
-        private val COLUMN_USER_NAME = "user_name"
-        private val COLUMN_USER_EMAIL = "user_email"
-        private val COLUMN_USER_PASSWORD = "user_password"
+        private const val COLUMN_USER_ID = "user_id"
+        private const val COLUMN_USER_NAME = "user_name"
+        private const val COLUMN_USER_EMAIL = "user_email"
+        private const val COLUMN_USER_PASSWORD = "user_password"
+
+        // Pokemon table name
+        private const val TABLE_POKEMON = "pokemon"
+
+        // Pokemon Table Columns names
+        private const val COLUMN_POKE_ID = "pokemon_id"
+        private const val COLUMN_POKE_NAME = "pokemon_name"
+        private const val COLUMN_POKE_IMAGE = "pokemon_image"
+
+        // User Pokemon table
+        private const val TABLE_USER_POKEMON = "user_pokemon"
     }
 }
