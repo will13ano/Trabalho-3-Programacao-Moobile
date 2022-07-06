@@ -8,55 +8,65 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@drawable/train_poke"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/train_poke" />
 
         <EditText
             android:id="@+id/nameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/login_edit_background"
             android:drawableStart="@drawable/user"
             android:drawablePadding="10dp"
             android:hint="@string/name"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/login_edit_background"
             android:drawableStart="@drawable/email"
             android:drawablePadding="10dp"
             android:hint="@string/email"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            />
+            android:inputType="textEmailAddress" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeProfileButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/button_background"
             android:text="@string/updateProfile"
             android:textAllCaps="false"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/delete"
+            android:text="@string/deleteProfile"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

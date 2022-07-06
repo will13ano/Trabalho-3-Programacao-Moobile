@@ -18,4 +18,5 @@
     <string name="updateProfile">Alterar Perfil</string>
     <string name="user_update_error">Nao foi possivel atualizar o usuario</string>
     <string name="user_update_success">Atualizado com sucesso</string>
+    <string name="deleteProfile">Deletar perfil</string>
 </resources>

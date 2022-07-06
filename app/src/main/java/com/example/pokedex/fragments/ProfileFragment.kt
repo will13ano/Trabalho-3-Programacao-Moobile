@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.pokedex.MainActivity2
+import androidx.appcompat.widget.AppCompatButton
 import com.example.pokedex.R
 import com.example.pokedex.database.DatabaseHelper
 import com.example.pokedex.helpers.InputValidation
@@ -19,7 +18,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private lateinit var currentUser: User
     private lateinit var nameField: EditText
     private lateinit var emailField: EditText
-    private lateinit var changeProfileButton: Button
+    private lateinit var changeProfileButton: AppCompatButton
+    private lateinit var deleteProfileButton: AppCompatButton
 
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var inputValidation: InputValidation
@@ -46,12 +46,14 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private fun initListeners() {
         changeProfileButton!!.setOnClickListener(this)
+        deleteProfileButton!!.setOnClickListener(this)
     }
 
     private fun initView(v: View) {
         nameField = v.findViewById(R.id.nameField)
         emailField = v.findViewById(R.id.emailField)
         changeProfileButton = v.findViewById(R.id.changeProfileButton)
+        deleteProfileButton = v.findViewById(R.id.deleteProfile)
     }
 
 

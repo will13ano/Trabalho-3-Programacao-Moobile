@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import com.example.pokedex.database.DatabaseHelper
 import com.example.pokedex.helpers.InputValidation
 
@@ -15,8 +16,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
-    private lateinit var loginButton: Button
-    private lateinit var createButton: Button
+    private lateinit var loginButton: AppCompatButton
+    private lateinit var createButton: AppCompatButton
 
     private lateinit var inputValidation: InputValidation
     private lateinit var databaseHelper: DatabaseHelper
@@ -34,10 +35,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViews() {
-        emailField = findViewById<EditText>(R.id.emailField)
-        passwordField = findViewById<EditText>(R.id.passwordField)
-        loginButton = findViewById<Button>(R.id.loginButton)
-        createButton = findViewById<Button>(R.id.createButton)
+        emailField = findViewById(R.id.emailField)
+        passwordField = findViewById(R.id.passwordField)
+        loginButton = findViewById(R.id.loginButton)
+        createButton = findViewById(R.id.createButton)
     }
 
     private fun initListeners() {

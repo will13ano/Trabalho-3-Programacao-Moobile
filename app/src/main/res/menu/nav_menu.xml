@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/profile"
-        android:title="@string/profile"/>
+        android:id="@+id/pokedex"
+        android:icon="@drawable/pokeball_icon"
+        android:title="@string/pokedex"/>
 
     <item
         android:id="@+id/favorites"
@@ -12,7 +12,7 @@
         />
 
     <item
-        android:id="@+id/pokedex"
-        android:icon="@drawable/pokeball_icon"
-        android:title="@string/pokedex"/>
+        android:id="@+id/profile"
+        android:icon="@drawable/profile"
+        android:title="@string/profile"/>
 </menu>
