@@ -62,6 +62,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper (context, DATABASE_NAM
     fun deleteUser(user: User) {
         val db = this.writableDatabase
 
+        db.delete(TABLE_USER_POKEMON, "$COLUMN_USER_ID = ?", arrayOf(user.id.toString()))
         db.delete(TABLE_USER, "$COLUMN_USER_ID = ?", arrayOf(user.id.toString()))
         db.close()
     }

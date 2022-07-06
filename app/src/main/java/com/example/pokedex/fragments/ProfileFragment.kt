@@ -95,7 +95,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         try {
             dbHelper.updateUser(currentUser);
-            Toast.makeText(context, getText(R.string.user_update_success), Toast.LENGTH_SHORT)
+            Toast.makeText(context, getText(R.string.user_update_success), Toast.LENGTH_SHORT).show()
         } catch (e : Exception) {
             Toast.makeText(context, getText(R.string.user_update_error), Toast.LENGTH_SHORT).show()
         }
