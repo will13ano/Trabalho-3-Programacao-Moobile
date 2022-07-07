@@ -55,7 +55,6 @@ class PokedexFragment : Fragment() {
                 }
             }
 
-            Log.d("POKEMON_API", "Esta entrando aqui dentro")
             val layoutManager = LinearLayoutManager(context)
 
             recyclerView.post{
