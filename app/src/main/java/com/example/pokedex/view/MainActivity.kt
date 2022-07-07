@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val user = databaseHelper!!.checkUser(emailField!!.text.toString().trim { it <= ' ' }, passwordField!!.text.toString().trim { it <= ' ' })
         if (user != null) {
-            val accountsIntent = Intent(activity, MainActivity2::class.java)
+            val accountsIntent = Intent(this, MainActivity2::class.java)
             accountsIntent.putExtra("USER", user)
             emptyInputEditText()
             startActivity(accountsIntent)
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.loginButton -> verifyFromSQLite()
             R.id.createButton -> {
-                val intentRegister = Intent(applicationContext, CreateActivity::class.java)
+                val intentRegister = Intent(this, CreateActivity::class.java)
                 startActivity(intentRegister)
             }
         }

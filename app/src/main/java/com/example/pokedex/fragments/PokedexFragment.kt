@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.*
-import com.example.pokedex.model.User
+import com.example.pokedex.model.Pokemon
 
 class PokedexFragment : Fragment() {
 
@@ -45,7 +45,7 @@ class PokedexFragment : Fragment() {
                 val pokemonApiResult = PokemonRepository.getPokemon(number)
 
                 pokemonApiResult?.let{
-                    Pokemon(
+                    Pokemon(0,
                         pokemonApiResult.id,
                         pokemonApiResult.name,
                         pokemonApiResult.types.map { type ->

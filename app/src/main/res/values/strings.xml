@@ -19,4 +19,10 @@
     <string name="user_update_error">Nao foi possivel atualizar o usuario</string>
     <string name="user_update_success">Atualizado com sucesso</string>
     <string name="deleteProfile">Deletar perfil</string>
+    <string name="confirmDelete">Confirmar Exclusão</string>
+    <string name="confirmDeleteMessage">Deseja realmente deletar o perfil ?</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="deleteCanceled">"Exclusão cancelada "</string>
+    <string name="deleteSuccess">Excluido com sucesso</string>
 </resources>

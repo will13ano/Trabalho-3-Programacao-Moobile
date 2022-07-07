@@ -1,7 +1,5 @@
 package com.example.pokedex.model
 
-import com.example.pokedex.PokemonType
-
 data class PokemonsApiResult (
     val count: Int,
     val previous: String?,

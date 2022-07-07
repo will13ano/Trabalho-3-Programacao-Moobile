@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokedex.model.Pokemon
 
 class PokemonAdapter(
     private val items: List<Pokemon?>
@@ -39,9 +40,9 @@ class PokemonAdapter(
 
                 tvNumber.text = "Nº ${item.formattedNumber}"
                 tvName.text = item.formattedName
-                tvType1.text = item.types[0].name.capitalize()
+                tvType1.text = item.types?.get(0)?.name?.capitalize()
 
-                if(item.types.size > 1){
+                if(item.types?.size!! > 1){
                     tvType2.visibility = View.VISIBLE
                     tvType2.text = item.types[1].name.capitalize()
                 } else {

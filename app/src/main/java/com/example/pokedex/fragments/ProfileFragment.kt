@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
+
 import com.example.pokedex.R
 import com.example.pokedex.database.DatabaseHelper
 import com.example.pokedex.helpers.InputValidation
 import com.example.pokedex.model.User
+import com.example.pokedex.view.MainActivity2
 
 class ProfileFragment : Fragment(), View.OnClickListener {
     private lateinit var currentUser: User
@@ -79,7 +82,27 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.changeProfileButton -> updateProfileOnDatabase()
+            R.id.deleteProfile -> confirmDeleteProfile()
         }
+    }
+
+    private fun confirmDeleteProfile() {
+        val builder = AlertDialog.Builder(requireContext())
+
+        builder.setTitle(R.string.confirmDelete)
+        builder.setMessage(R.string.confirmDeleteMessage)
+        builder.setPositiveButton(R.string.confirm) {dialog, which ->
+            dbHelper.deleteUser(currentUser);
+            Toast.makeText(context, getText(R.string.deleteSuccess), Toast.LENGTH_LONG).show()
+            val accountsIntent = Intent(null, MainActivity2::class.java)
+            startActivity(accountsIntent)
+        }
+        builder.setNegativeButton(R.string.cancel) {dialog, which ->
+            Toast.makeText(context, getText(R.string.deleteCanceled), Toast.LENGTH_SHORT).show()
+        }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     private fun updateProfileOnDatabase() {

@@ -3,11 +3,6 @@ package com.example.pokedex.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pokedex.Pokemon
-import com.example.pokedex.PokemonAdapter
-import com.example.pokedex.PokemonType
 import com.example.pokedex.R
 import com.example.pokedex.fragments.FavoritesFragment
 import com.example.pokedex.fragments.PokedexFragment

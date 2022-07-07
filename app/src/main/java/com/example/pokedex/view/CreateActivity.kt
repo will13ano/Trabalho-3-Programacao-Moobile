@@ -79,6 +79,7 @@ class CreateActivity : AppCompatActivity(), View.OnClickListener {
 
             makeShortToast(getString(R.string.user_create_success_message))
             emptyInputEditText()
+            navigateToMain()
         } else {
             // Snack Bar to show error message that record already exists
             makeShortToast(getString(R.string.error_email_exists))
@@ -91,11 +92,13 @@ class CreateActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.createButton -> postDataToSQLite()
-            R.id.haveAccountButton -> {
-                val intentRegister = Intent(applicationContext, MainActivity::class.java)
-                startActivity(intentRegister)
-            }
+            R.id.haveAccountButton -> navigateToMain()
         }
+    }
+
+    private fun navigateToMain() {
+        val intentRegister = Intent(null, MainActivity::class.java)
+        startActivity(intentRegister)
     }
 
     private fun emptyInputEditText() {
