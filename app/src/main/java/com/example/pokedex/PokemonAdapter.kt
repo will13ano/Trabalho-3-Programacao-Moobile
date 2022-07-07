@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class PokemonAdapter(
     private val items: List<Pokemon?>
@@ -33,16 +34,16 @@ class PokemonAdapter(
             val tvType1 = findViewById<TextView>(R.id.tvType1)
             val tvType2 = findViewById<TextView>(R.id.tvType2)
 
-            //TODO: load image with glide
-
             item?.let {
+                Glide.with(itemView.context).load(it.imageUrl).into(ivPokemon)
+
                 tvNumber.text = "Nº ${item.formattedNumber}"
-                tvName.text = item.name
-                tvType1.text = item.types[0].name
+                tvName.text = item.formattedName
+                tvType1.text = item.types[0].name.capitalize()
 
                 if(item.types.size > 1){
                     tvType2.visibility = View.VISIBLE
-                    tvType2.text = item.types[1].name
+                    tvType2.text = item.types[1].name.capitalize()
                 } else {
                     tvType2.visibility = View.GONE
                 }
