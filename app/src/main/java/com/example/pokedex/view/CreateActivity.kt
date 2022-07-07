@@ -1,17 +1,16 @@
-package com.example.pokedex
+package com.example.pokedex.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.pokedex.R
 import com.example.pokedex.database.DatabaseHelper
 import com.example.pokedex.helpers.InputValidation
 import com.example.pokedex.model.User
-import com.google.android.material.badge.BadgeUtils
 
 class CreateActivity : AppCompatActivity(), View.OnClickListener {
     private val activity = this@CreateActivity
